@@ -15,15 +15,12 @@
 </head>
 <style type="text/css">
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
 * {
-  font-family: "Red Hat Display", 黑體;
-  letter-spacing: 0.9px;
-}
+  font-family: "Red Hat Display" , 黑體;
+  letter-spacing: 0.9px; }
 
-body,
-html {
+body, html {
   width: 100%;
   height: 100vh;
   margin: 0;
@@ -31,56 +28,87 @@ html {
   position: relative;
   overflow: hidden;
   vertical-align: top;
-  background-color: #c1272d;
-}
+  background-color: #c1272d; }
 
 .BG {
   position: absolute;
   width: 350px;
   left: 50%;
   top: 40%;
-  transform: translateX(-50%) translateY(-40%);
-}
-
-@media screen and (max-width: 935px) {
-  .BG {
-    width: 280px;
-  }
-}
-
-.BG .bt,
-.BG .up {
-  text-align: center;
-}
-
-.BG .bt img,
-.BG .up img {
-  width: 80%;
-}
+  transform: translateX(-50%) translateY(-40%); }
+  @media screen and (max-width: 935px) {
+    .BG {
+      width: 280px; } }
+  .BG .bt {
+    text-align: center; }
+    .BG .bt img {
+      width: 80%; }
+  .BG .up {
+    position: absolute;
+    top: 0;
+    left: 0; }
+    .BG .up img {
+      width: 80%; }
 
 a {
   color: #75ef00;
   text-decoration: none;
   cursor: pointer;
-  transition-duration: 0.1s;
-}
+  transition-duration: 0.1s; }
+  a:hover {
+    color: #f2f2f2; }
 
-a:hover {
-  color: #f2f2f2;
-}
-
-#switch:checked~#links {
+#switch:checked ~ #links {
   display: block;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(black, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
-  top: 0;
-}
+  top: 0; }
+  #switch:checked ~ #links .links {
+    padding: 40px 70px;
+    text-align: center;
+    display: block; }
+    #switch:checked ~ #links .links .li {
+      padding-top: 20px; }
+    #switch:checked ~ #links .links .plus {
+      height: 0;
+      display: none;
+      margin-bottom: -0px; }
+    #switch:checked ~ #links .links .Rlinks {
+      text-align: center; }
+    #switch:checked ~ #links .links .ltli {
+      margin-bottom: 0px; }
+    #switch:checked ~ #links .links .rtli {
+      margin-bottom: 0;
+      margin-top: 15px; }
+    #switch:checked ~ #links .links .lbli, #switch:checked ~ #links .links .rbli {
+      margin-top: 15px; }
+    #switch:checked ~ #links .links .rect {
+      display: none; }
 
-#links {
-  display: none;
-}
+#switch:checked ~ .footerLINK {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  align-items: center;
+  justify-content: center; }
+  #switch:checked ~ .footerLINK p {
+    margin-top: 20px; }
+  #switch:checked ~ .footerLINK .Rtext {
+    display: flex;
+    flex-direction: column; }
+    #switch:checked ~ .footerLINK .Rtext a {
+      margin-left: 0;
+      margin-top: 7px; }
+
+@media screen and (max-width: 935px) {
+  #links {
+    display: none; } }
 
 #links .links {
   padding: 0px 145px;
@@ -93,143 +121,107 @@ a:hover {
   position: relative;
   list-style: none;
   margin-bottom: 0;
-  margin-top: 25vh;
-}
+  margin-top: 25vh; }
+  @media screen and (max-width: 935px) {
+    #links .links {
+      margin-top: 3vh; } }
 
-@media screen and (max-width: 935px) {
-  #links .links {
-    margin-top: 3vh;
-  }
-}
+#links .Llinks {
+  display: flex;
+  flex-direction: column; }
+  #links .Llinks .ltli {
+    margin-bottom: 28vh; }
+  #links .Llinks .lbli {
+    position: relative;
+    transition-duration: 0.1s; }
+  #links .Llinks .rect {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    height: 2px;
+    width: 96px;
+    background-color: #f2f2f2;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out; }
 
-#links .Llinks,
 #links .Rlinks {
   display: flex;
   flex-direction: column;
-}
-
-#links .Llinks .ltli,
-#links .Rlinks .rtli {
-  margin-bottom: 28vh;
-}
-
-#links .Llinks .lbli,
-#links .Rlinks .rbli {
-  position: relative;
-  transition-duration: 0.1s;
-  margin-top: 15px;
-}
-
-#links .Llinks .rect {
-  position: absolute;
-  left: 0;
-  bottom: 0px;
-  height: 2px;
-  width: 96px;
-  background-color: #f2f2f2;
-  opacity: 0;
-  transition: opacity 0.1s ease-in-out;
-}
+  text-align: right; }
+  #links .Rlinks .rtli {
+    margin-bottom: 28vh; }
 
 ul.plus {
   transition: opacity 0.2s ease-in-out;
   padding-top: 7px;
   list-style: none;
   padding-left: 0;
-  display: flex;
-}
-
-@media screen and (max-width: 1180px) {
-  ul.plus {
-    display: flex;
-    flex-direction: column;
-  }
-  ul.plus .li1 {
-    margin-right: 9px;
-  }
-  ul.plus .li2 {
-    margin-right: 35px;
-  }
-}
-
-@media screen and (max-width: 935px) {
-  ul.plus .li1 {
-    margin-right: 0px;
-  }
-  ul.plus .li2 {
-    margin-right: 0px;
-  }
-}
-
-ul.plus .plustop,
-ul.plus .plusbottom {
-  display: none;
-}
-
-@media screen and (max-width: 935px) {
-  ul.plus .plustop,
+  display: flex; }
+  @media screen and (max-width: 1180px) {
+    ul.plus {
+      display: flex;
+      flex-direction: column; }
+      ul.plus .li1 {
+        margin-right: 9px; }
+      ul.plus .li2 {
+        margin-right: 35px; } }
+  @media screen and (max-width: 935px) {
+    ul.plus .li1 {
+      margin-right: 0px; }
+    ul.plus .li2 {
+      margin-right: 0px; } }
+  ul.plus .plustop {
+    display: none; }
+    @media screen and (max-width: 935px) {
+      ul.plus .plustop {
+        flex-direction: column; }
+        ul.plus .plustop li {
+          padding-top: 5px; } }
   ul.plus .plusbottom {
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  ul.plus .plustop li,
-  ul.plus .plusbottom li {
-    padding-top: 5px;
-  }
-}
-
-ul.plus a {
-  color: #d3d3d3;
-  font-size: 14px;
-  margin-right: 10px;
-  font-weight: 500;
-}
-
-ul.plus a:hover {
-  color: #d3d3d3;
-}
+    display: none; }
+    @media screen and (max-width: 935px) {
+      ul.plus .plusbottom {
+        flex-direction: column;
+        margin-bottom: 10px; }
+        ul.plus .plusbottom li {
+          padding-top: 5px; } }
+  ul.plus a {
+    color: #f2f2f2;
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: 500; }
+    ul.plus a:hover {
+      color: #d3d3d3; }
 
 input#shopall {
-  display: none;
-}
+  display: none; }
 
 label#all {
   cursor: pointer;
   color: #75ef00;
   transform: scaleX(1.2) scaleY(1.2);
   padding-left: 15px;
-  display: none;
-}
-
-@media screen and (max-width: 935px) {
-  label#all {
-    display: inline-block;
-  }
-}
+  display: none; }
+  @media screen and (max-width: 935px) {
+    label#all {
+      display: inline-block; } }
 
 input#switch {
-  display: none;
-}
+  display: none; }
 
 label#menuIcon {
   cursor: pointer;
-  height: 30px;
-}
-
-label#menuIcon img {
-  width: 35px;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  display: none;
-  z-index: 999;
-}
-
-@media screen and (max-width: 935px) {
+  height: 30px; }
   label#menuIcon img {
-    display: block;
-  }
-}
+    width: 35px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    display: none;
+    z-index: 999; }
+    @media screen and (max-width: 935px) {
+      label#menuIcon img {
+        display: block; } }
 
 .footerLINK {
   font-size: 12px;
@@ -241,33 +233,20 @@ label#menuIcon img {
   align-items: flex-end;
   justify-content: space-between;
   padding: 0px 145px;
-  white-space: nowrap;
-}
-
-@media screen and (max-width: 935px) {
-  .footerLINK {
-    display: none;
-  }
-}
-
-.footerLINK p {
-  margin-bottom: 0;
-  color: #f2f2f2;
-}
-
-.footerLINK .Rtext {
-  display: flex;
-  flex-direction: column;
-}
-
-.footerLINK .Rtext a {
-  margin-left: 40px;
-  color: #f2f2f2;
-}
-
-.footerLINK .Rtext a:hover {
-  color: #d3d3d3;
-}
+  white-space: nowrap; }
+  @media screen and (max-width: 935px) {
+    .footerLINK {
+      display: none; } }
+  .footerLINK p {
+    margin-bottom: 0;
+    color: #f2f2f2; }
+  .footerLINK .Rtext {
+    display: flex; }
+    .footerLINK .Rtext a {
+      margin-left: 40px;
+      color: #f2f2f2; }
+      .footerLINK .Rtext a:hover {
+        color: #d3d3d3; }
 
 #container {
   text-align: center;
@@ -277,157 +256,180 @@ label#menuIcon img {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 550px;
-  perspective: 1400px;
-}
+  perspective: 1400px; }
 
 #frame {
   width: 33px;
   transform-style: preserve-3d;
-  transform: rotateX(-25deg) rotateY(48deg) rotateZ(10deg) translate3d(330px, -70px, 50px);
-}
+  transform: rotateX(-25deg) rotateY(48deg) rotateZ(10deg) translate3d(330px, -70px, 50px); }
 
 .strip {
   transform-style: preserve-3d;
-  animation: spin 25s infinite linear;
-}
-
-.strip div {
-  position: absolute;
-  background: url(https://i.imgur.com/iWvRR4L.png);
-  background-size: cover;
-  height: 80px;
-  width: 52.33px;
-  opacity: 1;
-}
-
-.strip .a {
-  background-position: 0 0;
-  transform: rotateY(0deg) translateZ(160px);
-}
-
-.strip .b {
-  background-position: -52.33px 0;
-  transform: rotateY(15deg) translateZ(160px);
-}
-
-.strip .c {
-  background-position: -104.66px 0;
-  transform: rotateY(30deg) translateZ(160px);
-}
-
-.strip .d {
-  background-position: -157px 0;
-  transform: rotateY(45deg) translateZ(160px);
-}
-
-.strip .e {
-  background-position: -209.33px 0;
-  transform: rotateY(60deg) translateZ(160px);
-}
-
-.strip .f {
-  background-position: -261.66px 0;
-  transform: rotateY(75deg) translateZ(160px);
-}
-
-.strip .g {
-  background-position: -314px 0;
-  transform: rotateY(90deg) translateZ(160px);
-}
-
-.strip .h {
-  background-position: -366.33px 0;
-  transform: rotateY(105deg) translateZ(160px);
-}
-
-.strip .i {
-  background-position: -418.66px 0;
-  transform: rotateY(120deg) translateZ(160px);
-}
-
-.strip .j {
-  background-position: -471px 0;
-  transform: rotateY(135deg) translateZ(160px);
-}
-
-.strip .k {
-  background-position: -523.33px 0;
-  transform: rotateY(150deg) translateZ(160px);
-}
-
-.strip .l {
-  background-position: -575.66px 0;
-  transform: rotateY(165deg) translateZ(160px);
-}
-
-.strip .m {
-  background-position: -628px 0;
-  transform: rotateY(180deg) translateZ(160px);
-}
-
-.strip .n {
-  background-position: -680.33px 0;
-  transform: rotateY(195deg) translateZ(160px);
-}
-
-.strip .o {
-  background-position: -732.66px 0;
-  transform: rotateY(210deg) translateZ(160px);
-}
-
-.strip .p {
-  background-position: -785px 0;
-  transform: rotateY(225deg) translateZ(160px);
-}
-
-.strip .q {
-  background-position: -837.33px 0;
-  transform: rotateY(240deg) translateZ(160px);
-}
-
-.strip .r {
-  background-position: -889.66px 0;
-  transform: rotateY(255deg) translateZ(160px);
-}
-
-.strip .s {
-  background-position: -942px 0;
-  transform: rotateY(270deg) translateZ(160px);
-}
-
-.strip .t {
-  background-position: -994.33px 0;
-  transform: rotateY(285deg) translateZ(160px);
-}
-
-.strip .u {
-  background-position: -1046.66px 0;
-  transform: rotateY(300deg) translateZ(160px);
-}
-
-.strip .v {
-  background-position: -1099px 0;
-  transform: rotateY(315deg) translateZ(160px);
-}
-
-.strip .w {
-  background-position: -1151.33px 0;
-  transform: rotateY(330deg) translateZ(160px);
-}
-
-.strip .x {
-  background-position: -1203.66px 0;
-  transform: rotateY(345deg) translateZ(160px);
-}
+  animation: spin 25s infinite linear; }
+  .strip div {
+    position: absolute;
+    background: url(https://i.imgur.com/iWvRR4L.png);
+    background-size: cover;
+    height: 80px;
+    width: 52.33px;
+    opacity: 1; }
+  .strip .a {
+    background-position: 0 0;
+    transform: rotateY(0deg) translateZ(200px); }
+  .strip .b {
+    background-position: -52.33px 0;
+    transform: rotateY(15deg) translateZ(200px); }
+  .strip .c {
+    background-position: -104.66px 0;
+    transform: rotateY(30deg) translateZ(200px); }
+  .strip .d {
+    background-position: -157px 0;
+    transform: rotateY(45deg) translateZ(200px); }
+  .strip .e {
+    background-position: -209.33px 0;
+    transform: rotateY(60deg) translateZ(200px); }
+  .strip .f {
+    background-position: -261.66px 0;
+    transform: rotateY(75deg) translateZ(200px); }
+  .strip .g {
+    background-position: -314px 0;
+    transform: rotateY(90deg) translateZ(200px); }
+  .strip .h {
+    background-position: -366.33px 0;
+    transform: rotateY(105deg) translateZ(200px); }
+  .strip .i {
+    background-position: -418.66px 0;
+    transform: rotateY(120deg) translateZ(200px); }
+  .strip .j {
+    background-position: -471px 0;
+    transform: rotateY(135deg) translateZ(200px); }
+  .strip .k {
+    background-position: -523.33px 0;
+    transform: rotateY(150deg) translateZ(200px); }
+  .strip .l {
+    background-position: -575.66px 0;
+    transform: rotateY(165deg) translateZ(200px); }
+  .strip .m {
+    background-position: -628px 0;
+    transform: rotateY(180deg) translateZ(200px); }
+  .strip .n {
+    background-position: -680.33px 0;
+    transform: rotateY(195deg) translateZ(200px); }
+  .strip .o {
+    background-position: -732.66px 0;
+    transform: rotateY(210deg) translateZ(200px); }
+  .strip .p {
+    background-position: -785px 0;
+    transform: rotateY(225deg) translateZ(200px); }
+  .strip .q {
+    background-position: -837.33px 0;
+    transform: rotateY(240deg) translateZ(200px); }
+  .strip .r {
+    background-position: -889.66px 0;
+    transform: rotateY(255deg) translateZ(200px); }
+  .strip .s {
+    background-position: -942px 0;
+    transform: rotateY(270deg) translateZ(200px); }
+  .strip .t {
+    background-position: -994.33px 0;
+    transform: rotateY(285deg) translateZ(200px); }
+  .strip .u {
+    background-position: -1046.66px 0;
+    transform: rotateY(300deg) translateZ(200px); }
+  .strip .v {
+    background-position: -1099px 0;
+    transform: rotateY(315deg) translateZ(200px); }
+  .strip .w {
+    background-position: -1151.33px 0;
+    transform: rotateY(330deg) translateZ(200px); }
+  .strip .x {
+    background-position: -1203.66px 0;
+    transform: rotateY(345deg) translateZ(200px); }
 
 @keyframes spin {
   from {
-    transform: rotateY(0);
-  }
+    transform: rotateY(0); }
   to {
-    transform: rotateY(360deg);
-  }
-}
+    transform: rotateY(360deg); } }
+
+@media screen and (max-width: 935px) {
+  #container {
+    top: 68%; }
+  #frame .strip div {
+    background-size: cover;
+    width: 41.89px; }
+  #frame .strip .a {
+    background-position: 0 0;
+    transform: rotateY(0deg) translateZ(160px); }
+  #frame .strip .b {
+    background-position: -41.89px 0;
+    transform: rotateY(15deg) translateZ(160px); }
+  #frame .strip .c {
+    background-position: -83.78px 0;
+    transform: rotateY(30deg) translateZ(160px); }
+  #frame .strip .d {
+    background-position: -125.67px 0;
+    transform: rotateY(45deg) translateZ(160px); }
+  #frame .strip .e {
+    background-position: -167.56px 0;
+    transform: rotateY(60deg) translateZ(160px); }
+  #frame .strip .f {
+    background-position: -209.45px 0;
+    transform: rotateY(75deg) translateZ(160px); }
+  #frame .strip .g {
+    background-position: -251.34px 0;
+    transform: rotateY(90deg) translateZ(160px); }
+  #frame .strip .h {
+    background-position: -293.23px 0;
+    transform: rotateY(105deg) translateZ(160px); }
+  #frame .strip .i {
+    background-position: -335.12px 0;
+    transform: rotateY(120deg) translateZ(160px); }
+  #frame .strip .j {
+    background-position: -377.01px 0;
+    transform: rotateY(135deg) translateZ(160px); }
+  #frame .strip .k {
+    background-position: -418.9px 0;
+    transform: rotateY(150deg) translateZ(160px); }
+  #frame .strip .l {
+    background-position: -460.79px 0;
+    transform: rotateY(165deg) translateZ(160px); }
+  #frame .strip .m {
+    background-position: -502.68px 0;
+    transform: rotateY(180deg) translateZ(160px); }
+  #frame .strip .n {
+    background-position: -544.57px 0;
+    transform: rotateY(195deg) translateZ(160px); }
+  #frame .strip .o {
+    background-position: -586.46px 0;
+    transform: rotateY(210deg) translateZ(160px); }
+  #frame .strip .p {
+    background-position: -628.35px 0;
+    transform: rotateY(225deg) translateZ(160px); }
+  #frame .strip .q {
+    background-position: -670.24px 0;
+    transform: rotateY(240deg) translateZ(160px); }
+  #frame .strip .r {
+    background-position: -712.13px 0;
+    transform: rotateY(255deg) translateZ(160px); }
+  #frame .strip .s {
+    background-position: -754.02px 0;
+    transform: rotateY(270deg) translateZ(160px); }
+  #frame .strip .t {
+    background-position: -795.91px 0;
+    transform: rotateY(285deg) translateZ(160px); }
+  #frame .strip .u {
+    background-position: -837.8px 0;
+    transform: rotateY(300deg) translateZ(160px); }
+  #frame .strip .v {
+    background-position: -879.69px 0;
+    transform: rotateY(315deg) translateZ(160px); }
+  #frame .strip .w {
+    background-position: -921.58px 0;
+    transform: rotateY(330deg) translateZ(160px); }
+  #frame .strip .x {
+    background-position: -963.47px 0;
+    transform: rotateY(345deg) translateZ(160px); } }
 
 
 #shopline-section-footer {
@@ -456,89 +458,72 @@ label#menuIcon img {
 
 
 <div class="BG">
-  <div class="bgimg bt">
-    <img src="https://i.imgur.com/XY4wQMy.png" alt="">
-    <div id="container">
-      <div id="frame">
-        <div class="strip">
-          <div class="a"></div>
-          <div class="b"></div>
-          <div class="c"></div>
-          <div class="d"></div>
-          <div class="e"></div>
-          <div class="f"></div>
-          <div class="g"></div>
-          <div class="h"></div>
-          <div class="i"></div>
-          <div class="j"></div>
-          <div class="k"></div>
-          <div class="l"></div>
-          <div class="m"></div>
-          <div class="n"></div>
-          <div class="o"></div>
-          <div class="p"></div>
-          <div class="q"></div>
-          <div class="r"></div>
-          <div class="s"></div>
-          <div class="t"></div>
-          <div class="u"></div>
-          <div class="v"></div>
-          <div class="w"></div>
-          <div class="x"></div>
+    <div class="bgimg bt"><img src="https://i.imgur.com/XY4wQMy.png" alt="" />
+        <div id="container">
+            <div id="frame">
+                <div class="strip">
+                    <div class="a"></div>
+                    <div class="b"></div>
+                    <div class="c"></div>
+                    <div class="d"></div>
+                    <div class="e"></div>
+                    <div class="f"></div>
+                    <div class="g"></div>
+                    <div class="h"></div>
+                    <div class="i"></div>
+                    <div class="j"></div>
+                    <div class="k"></div>
+                    <div class="l"></div>
+                    <div class="m"></div>
+                    <div class="n"></div>
+                    <div class="o"></div>
+                    <div class="p"></div>
+                    <div class="q"></div>
+                    <div class="r"></div>
+                    <div class="s"></div>
+                    <div class="t"></div>
+                    <div class="u"></div>
+                    <div class="v"></div>
+                    <div class="w"></div>
+                    <div class="x"></div>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="bgimg up"><img src="https://i.imgur.com/oEzPiQl.png" alt="" /></div>
     </div>
-  </div>
-  <div class="bgimg up">
-    <img src="https://i.imgur.com/oEzPiQl.png" alt="">
-  </div>
-</div>
-<label id="menuIcon" for="switch">
-  <img id="menuImage" src="https://i.imgur.com/UWBiQyC.png">
-</label>
-<input id="switch" type="checkbox">
+</div><label id="menuIcon" for="switch"><img id="menuImage" src="https://i.imgur.com/UWBiQyC.png"/></label><input id="switch" type="checkbox" />
 <div id="links">
-  <ul class="links">
-    <div class="Llinks">
-      <li class="ltli"><a class="link ltlink" href="">NEW ARRIVALS</a></li>
-      <li class="lbli">
-        <a class="link lblink" href="">SHOP ALL</a>
-        <div class="rect">
-          <label id="all" for="shopall"></label>
-          <input id="shopall" type="checkbox">
+    <ul class="links">
+        <div class="Llinks">
+            <li class="ltli"><a class="link ltlink" href="">NEW ARRIVALS</a></li>
+            <li class="lbli"><a class="link lblink" href="">SHOP ALL</a>
+                <div class="rect"></div><label id="all" for="shopall">+</label><input id="shopall" type="checkbox" /></li>
+            <ul class="plus">
+                <div class="plustop">
+                    <li class="li1"><a class="link" href="">ALL</a></li>
+                    <li class="li2"><a class="link" href="">Top</a></li>
+                    <li><a class="link" href="">Bottom</a></li>
+                </div>
+                <div class="plusbottom">
+                    <li><a class="link" href="">Dress</a></li>
+                    <li><a class="link" href="">Outwear</a></li>
+                    <li><a class="link" href="">Accessorise</a></li>
+                </div>
+            </ul>
         </div>
-      </li>
-      <ul class="plus">
-        <div class="plustop">
-          <li class="li1"><a class="link" href="">ALL</a></li>
-          <li class="li2"><a class="link" href="">Top</a></li>
-          <li><a class="link" href="">Bottom</a></li>
+        <div class="Rlinks">
+            <li class="rtli"><a class="link rtlink" href="">STOCKISTS</a></li>
+            <li class="rbli"><a class="link rblink" href="">COLLECTION</a></li>
         </div>
-        <div class="plusbottom">
-          <li><a class="link" href="">Dress</a></li>
-          <li><a class="link" href="">Outwear</a></li>
-          <li><a class="link" href="">Accessorise</a></li>
-        </div>
-      </ul>
-    </div>
-    <div class="Rlinks">
-      <li class="rtli"><a class="link rtlink" href="">STOCKISTS</a></li>
-      <li class="rbli"><a class="link rblink" href="">COLLECTION</a></li>
-    </div>
-  </ul>
+    </ul>
 </div>
 <div class="footerLINK">
-  <div class="Ltext">
-    <p>© 2024 by SILVER NINE</p>
-  </div>
-  <div class="Rtext">
-    <a class="link" href="">About SN9</a>
-    <a class="link" href="">Shopping&Returns</a>
-    <a class="link" href="">Privacy&policy</a>
-    <a class="link" href="">Contact</a>
-  </div>
+    <div class="Ltext">
+        <p>© 2024 by SILVER NINE</p>
+    </div>
+    <div class="Rtext"><a class="link" href="">About SN9</a><a class="link" href="">Shopping&Returns</a><a class="link" href="">Privacy&policy</a><a class="link" href="">Contact</a></div>
 </div>
-
+	
 </body>
 
 <script type="text/javascript">
