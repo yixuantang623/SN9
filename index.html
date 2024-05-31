@@ -18,7 +18,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap");
 * {
   font-family: "Red Hat Display" , 黑體;
-  letter-spacing: 0.9px; }
+  letter-spacing: 0.9px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none; }
 
 body, html {
   width: 100%;
@@ -42,13 +45,43 @@ body, html {
   .BG .bt {
     text-align: center; }
     .BG .bt img {
-      width: 80%; }
-  .BG .up {
-    position: absolute;
-    top: 0;
-    left: 0; }
-    .BG .up img {
-      width: 80%; }
+      width: 80%;
+      animation: shake 5s linear infinite; }
+    .BG .bt::after {
+      content: "";
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background: url("https://i.imgur.com/XY4wQMy.png") no-repeat center center/contain;
+      filter: grayscale(100%) contrast(200%) brightness(200%) sepia(1) hue-rotate(-90deg) saturate(10);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      opacity: 0.04;
+      animation: glitch 1.5s infinite alternate; }
+
+@keyframes glitch {
+  0% {
+    transform: translate(0, 0); }
+  20% {
+    transform: translate(3px, -3px); }
+  40% {
+    transform: translate(-3px, 3px); }
+  60% {
+    transform: translate(3px, 3px); }
+  80% {
+    transform: translate(-3px, -3px); }
+  100% {
+    transform: translate(0, 0); } }
+
+.up {
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .up img {
+    width: 80%;
+    animation: shake 5s linear infinite; }
 
 a {
   color: #75ef00;
@@ -430,6 +463,39 @@ label#menuIcon {
   #frame .strip .x {
     background-position: -963.47px 0;
     transform: rotateY(345deg) translateZ(160px); } }
+
+@keyframes shake {
+  5%,
+  15%,
+  25%,
+  35%,
+  55%,
+  65%,
+  75%,
+  95% {
+    filter: blur(0px);
+    transform: translateY(0.3px); }
+  10%,
+  30%,
+  40%,
+  50%,
+  70%,
+  80%,
+  90% {
+    filter: blur(0.3px);
+    transform: translateX(-0.3px); }
+  20%,
+  60% {
+    filter: blur(0.6px);
+    transform: translate(-0.3px, 0.3px); }
+  45%,
+  85% {
+    filter: blur(0.3px);
+    transform: translate(0.3px, -0.3px); }
+  100% {
+    filter: blur(0px);
+    transform: translate(0); } }
+
 
 
 #shopline-section-footer {
