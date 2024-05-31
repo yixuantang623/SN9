@@ -806,6 +806,15 @@ allElement.addEventListener('click', function() {
   isPlus = !isPlus;
 });
 
+document.getElementById('container').addEventListener('mouseenter', function() {
+  document.querySelector('.strip').style.animationPlayState = 'paused';
+});
+
+document.getElementById('container').addEventListener('mouseleave', function() {
+  document.querySelector('.strip').style.animationPlayState = 'running';
+});
+
+
 </script>	
 	
 </html>
