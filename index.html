@@ -32,6 +32,9 @@ body, html {
   overflow: hidden;
   vertical-align: top;
   background-color: #c1272d; }
+  @media screen and (max-width: 935px) {
+    body, html {
+      z-index: -2; } }
 
 .BG {
   position: absolute;
@@ -41,7 +44,8 @@ body, html {
   transform: translateX(-50%) translateY(-40%); }
   @media screen and (max-width: 935px) {
     .BG {
-      width: 280px; } }
+      width: 280px;
+      z-index: -1; } }
   .BG .bt {
     text-align: center; }
     .BG .bt img {
@@ -495,6 +499,7 @@ label#menuIcon {
   100% {
     filter: blur(0px);
     transform: translate(0); } }
+
 
 
 
